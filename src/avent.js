@@ -17,7 +17,7 @@
   * @name avent#on
   * @function
   * @param {string} Event Name
-  * @param {function} Callback Method
+  * @param {function} Method
   */
   avent.on = function(event, fn){
     // Creates object to store event data in
@@ -74,6 +74,7 @@
   * @name avent#trigger
   * @function
   * @param {string} Event Name
+  * @param {object} Data
   */
   avent.trigger = function(event, data){
 

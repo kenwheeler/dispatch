@@ -39,15 +39,21 @@ describe("avent", function() {
   describe("trigger", function() {
 
     var triggerValue = null;
+    var dataValue = null;
 
-    avent.on('triggertest', function(){
+    avent.on('triggertest', function(data){
       triggerValue = true;
+      dataValue = data.testValue;
     });
 
-    avent.trigger('triggertest');
+    avent.trigger('triggertest', {testValue: 5});
 
     it("should trigger a global event binding", function() {
       expect(triggerValue).to.equal(true);
+    });
+
+    it("should pass data to the method", function() {
+      expect(dataValue).to.equal(5);
     });
 
   });
