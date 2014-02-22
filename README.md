@@ -1,44 +1,43 @@
+# avent
 
+Global event manager, pub/sub implementation
 
-<!-- Start avent.js -->
+## Usage
 
-@name avent
+    avent.on('newEvent', function(data){
+      alert(data.message);
+    });
 
-## global
+    avent.trigger('newEvent', { message: 'Thug Life' });
 
-Creates an element to bind global events to
+    avent.off('newEvent');
 
-## events
+## Methods
 
-Creates an object to store event data in
-
-## avent#on(Event, Callback)
+### avent.on(Event Name, Callback Method)
 
 Creates new global event binding
 
-### Params:
+#### Params:
 
-* **string** *Event* Name
+* **string** *Event Name*
 
-* **function** *Callback* Method
+* **function** *Callback Method*
 
-## avent#off(Event)
+### avent.off(Event Name)
 
 Removes global event binding
 
-### Params:
+#### Params:
 
-* **string** *Event* Name
+* **string** *Event Name*
 
-## avent#trigger(Event)
+### avent.trigger(Event Name,Data Object)
 
 Triggers global event
 
-### Params:
+#### Params:
 
-* **string** *Event* Name
+* **string** *Event Name*
 
-* **object** *Data*
-
-<!-- End avent.js -->
-
+* **object** *Data Object*
