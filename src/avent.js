@@ -27,18 +27,19 @@
       data: null
     };
 
-    /// Adds event object to global event array
+    // Update method for data
+    e.fnc = function(){
+      return(fn.call(e.ev, e.data));
+    }
+
+    // Adds event object to global event array
     avent.events[event] = e;
 
     // Identifies correct binding method and applies event
     if (avent.global.addEventListener) {
-        avent.global.addEventListener(event, function(){
-          return(fn.call(e.ev, e.data));
-        }, false);
+        avent.global.addEventListener(event, e.fnc, false);
     } else {
-        avent.global.attachEvent(event, function() {
-            return(fn.call(e.ev, e.data));
-        });
+        avent.global.attachEvent(event, e.fnc);
     }
   };
 
