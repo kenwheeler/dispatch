@@ -52,17 +52,14 @@
   * @param {string} Event Name
   */
   avent.off = function(event){
+
+    var e = avent.events[event];
+
     // Identifies correct binding method and removes event
     if (avent.global.removeEventListener) {
-        avent.global.removeEventListener(
-          avent.events[event].ev.type,
-          avent.events[event].fnc
-        );
+        avent.global.removeEventListener(e.ev.type, e.fnc);
     } else {
-        avent.global.detachEvent(
-          avent.events[event].ev.type,
-          avent.events[event].fnc
-        );
+        avent.global.detachEvent(e.ev.type, e.fnc);
     }
     // Remove event from global event object
     delete avent.events[event];
@@ -79,13 +76,15 @@
   */
   avent.trigger = function(event, data){
 
-    avent.events[event].data = data;
+    var e = avent.events[event];
+
+    e.data = data;
 
     // Identifies correct trigger method and triggers event
     if (avent.global.addEventListener) {
-      avent.global.dispatchEvent(avent.events[event].ev);
+      avent.global.dispatchEvent(e.ev);
     } else {
-      avent.global.fireEvent(avent.events[event].ev);
+      avent.global.fireEvent(e.ev);
     }
   }
 
