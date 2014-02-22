@@ -1,0 +1,17 @@
+{
+  "name": "avent",
+  "main": "avent.js",
+  "version": "0.0.1",
+  "authors": [
+    "kenwheeler <dubmediagroup@gmail.com>"
+  ],
+  "description": "global event manager",
+  "keywords": [
+    "events"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "~1.9.0",
+    "mocha": "~1.17.1"
+  }
+}
