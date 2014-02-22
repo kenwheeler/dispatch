@@ -30,6 +30,8 @@ Removes global event binding
 
 * **string** *Event* Name
 
+* **Object** *Data*
+
 ## avent#trigger(Event)
 
 Triggers global event
