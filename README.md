@@ -30,8 +30,6 @@ Removes global event binding
 
 * **string** *Event* Name
 
-* **Object** *Data*
-
 ## avent#trigger(Event)
 
 Triggers global event
@@ -39,6 +37,8 @@ Triggers global event
 ### Params:
 
 * **string** *Event* Name
+
+* **object** *Data*
 
 <!-- End avent.js -->
 
