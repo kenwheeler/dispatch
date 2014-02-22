@@ -24,6 +24,7 @@
     var e = {
       ev: new Event(event),
       fnc: fn,
+      data: null
     };
 
     /// Adds event object to global event array
@@ -31,10 +32,12 @@
 
     // Identifies correct binding method and applies event
     if (avent.global.addEventListener) {
-        avent.global.addEventListener(event, fn, false);
+        avent.global.addEventListener(event, function(){
+          return(fn.call(e.ev, e.data));
+        }, false);
     } else {
         avent.global.attachEvent(event, function() {
-            return(fn.call(avent.global, window.event));
+            return(fn.call(e.ev, e.data));
         });
     }
   };
@@ -72,7 +75,10 @@
   * @function
   * @param {string} Event Name
   */
-  avent.trigger = function(event){
+  avent.trigger = function(event, data){
+
+    avent.events[event].data = data;
+
     // Identifies correct trigger method and triggers event
     if (avent.global.addEventListener) {
       avent.global.dispatchEvent(avent.events[event].ev);
