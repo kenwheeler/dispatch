@@ -1,13 +1,16 @@
 {
-  "name": "avent",
-  "main": "avent.js",
+  "name": "dispatch-pubsub",
+  "main": "dispatch.js",
   "version": "0.0.1",
   "authors": [
     "kenwheeler <dubmediagroup@gmail.com>"
   ],
   "description": "global event manager",
   "keywords": [
-    "events"
+    "events",
+    "pubsub",
+    "dispatch",
+    "event"
   ],
   "license": "MIT",
   "devDependencies": {
