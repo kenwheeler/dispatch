@@ -1,25 +1,25 @@
 /**
-* @name avent
+* @name dispatch
 * @namespace
 */
-(function(avent){
+(function(dispatch){
 
   /** Creates an element to bind global events to */
-  avent.global = document.createElement('avent');
+  dispatch.global = document.createElement('dispatch');
 
   /** Creates an object to store event data in */
-  avent.events = {};
+  dispatch.events = {};
 
   /**
   * Creates new global event binding
   *
   * @public
-  * @name avent#on
+  * @name dispatch#on
   * @function
   * @param {string} Event Name
   * @param {function} Method
   */
-  avent.on = function(event, fn){
+  dispatch.on = function(event, fn){
     // Creates object to store event data in
     var e = {
       ev: new Event(event),
@@ -33,13 +33,13 @@
     }
 
     // Adds event object to global event array
-    avent.events[event] = e;
+    dispatch.events[event] = e;
 
     // Identifies correct binding method and applies event
-    if (avent.global.addEventListener) {
-        avent.global.addEventListener(event, e.fnc, false);
+    if (dispatch.global.addEventListener) {
+        dispatch.global.addEventListener(event, e.fnc, false);
     } else {
-        avent.global.attachEvent(event, e.fnc);
+        dispatch.global.attachEvent(event, e.fnc);
     }
   };
 
@@ -47,48 +47,48 @@
   * Removes global event binding
   *
   * @public
-  * @name avent#off
+  * @name dispatch#off
   * @function
   * @param {string} Event Name
   */
-  avent.off = function(event){
+  dispatch.off = function(event){
 
-    var e = avent.events[event];
+    var e = dispatch.events[event];
 
     // Identifies correct binding method and removes event
-    if (avent.global.removeEventListener) {
-        avent.global.removeEventListener(e.ev.type, e.fnc);
+    if (dispatch.global.removeEventListener) {
+        dispatch.global.removeEventListener(e.ev.type, e.fnc);
     } else {
-        avent.global.detachEvent(e.ev.type, e.fnc);
+        dispatch.global.detachEvent(e.ev.type, e.fnc);
     }
     // Remove event from global event object
-    delete avent.events[event];
+    delete dispatch.events[event];
   };
 
   /**
   * Triggers global event
   *
   * @public
-  * @name avent#trigger
+  * @name dispatch#trigger
   * @function
   * @param {string} Event Name
   * @param {object} Data
   */
-  avent.trigger = function(event, data){
+  dispatch.trigger = function(event, data){
 
-    var e = avent.events[event];
+    var e = dispatch.events[event];
 
     e.data = data;
 
     // Identifies correct trigger method and triggers event
-    if (avent.global.addEventListener) {
-      avent.global.dispatchEvent(e.ev);
+    if (dispatch.global.addEventListener) {
+      dispatch.global.dispatchEvent(e.ev);
     } else {
-      avent.global.fireEvent(e.ev);
+      dispatch.global.fireEvent(e.ev);
     }
   }
 
-  // Return avent object
-  return avent;
+  // Return dispatch object
+  return dispatch;
 
-})(window.avent = window.avent || {});
+})(window.dispatch = window.dispatch || {});

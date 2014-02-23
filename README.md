@@ -1,20 +1,20 @@
-# avent
+# dispatch
 
 Global event manager, pub/sub implementation
 
 ## Usage
 
-    avent.on('newEvent', function(data){
+    dispatch.on('newEvent', function(data){
       alert(data.message);
     });
 
-    avent.trigger('newEvent', { message: 'Thug Life' });
+    dispatch.trigger('newEvent', { message: 'Thug Life' });
 
-    avent.off('newEvent');
+    dispatch.off('newEvent');
 
 ## Methods
 
-### avent.on(Event Name, Callback Method)
+### dispatch.on(Event Name, Callback Method)
 
 Creates new global event binding
 
@@ -24,7 +24,7 @@ Creates new global event binding
 
 * **function** *Callback Method*
 
-### avent.off(Event Name)
+### dispatch.off(Event Name)
 
 Removes global event binding
 
@@ -32,7 +32,7 @@ Removes global event binding
 
 * **string** *Event Name*
 
-### avent.trigger(Event Name,Data Object)
+### dispatch.trigger(Event Name,Data Object)
 
 Triggers global event
 
