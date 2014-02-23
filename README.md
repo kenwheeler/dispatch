@@ -12,6 +12,10 @@ Global event manager, pub/sub implementation
 
     dispatch.off('newEvent');
 
+## Demo
+
+[Check it out](http://kenwheeler.github.io/dispatch/)
+
 ## Methods
 
 ### dispatch.on(Event Name, Callback Method)
