@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>avent</title>
+  <title>dispatch</title>
   <link rel="stylesheet" media="all" href="../bower_components/mocha/mocha.css">
 </head>
 <body>
@@ -11,9 +11,14 @@
   <div id="fixtures"></div>
   <script src="../bower_components/mocha/mocha.js"></script>
   <script src="../bower_components/chai/chai.js"></script>
-  <script src="../src/avent.js"></script>
-  <script>mocha.setup('bdd')</script>
-  <script src="avent.spec.js"></script>
-  <script>mocha.run();</script>
+  <script src="../src/dispatch.js"></script>
+  <script>
+    mocha.ui('bdd');
+    mocha.reporter('html');
+    expect = chai.expect;
+  </script>
+  <script src="dispatch.spec.js"></script>
+  <script>if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+      else { mocha.run(); }</script>
 </body>
 </html>

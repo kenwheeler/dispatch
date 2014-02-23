@@ -22,10 +22,13 @@
   dispatch.on = function(event, fn){
     // Creates object to store event data in
     var e = {
-      ev: new Event(event),
+      ev: document.createEvent('Event'),
       fnc: fn,
       data: null
     };
+
+    // Initialize event w/ name
+    e.ev.initEvent(event,true, true);
 
     // Update method for data
     e.fnc = function(){
