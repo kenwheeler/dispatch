@@ -30,10 +30,23 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('src'));
 });
 
+// Run Mocha Phantom Test
+gulp.task('test', function(){
+  var exec = require('child_process').exec,
+    child;
+
+  child = exec('mocha-phantomjs test/index.html',
+    function (error, stdout, stderr) {
+      if (error !== null) {
+        console.log('stdout: ' + stdout);
+      }
+  });
+});
+
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('dispatch.js', ['lint', 'docs', 'scripts']);
+    gulp.watch('dispatch.js', ['lint', 'docs', 'scripts','test']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'scripts', 'docs', 'watch']);
+gulp.task('default', ['lint', 'scripts', 'docs', 'test', 'watch']);
