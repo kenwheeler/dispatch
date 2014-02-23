@@ -4,7 +4,13 @@
   "devDependencies": {
     "chai": "~1.9.0",
     "mocha": "~1.17.1",
-    "mocha-phantomjs": "~3.3.2"
+    "mocha-phantomjs": "~3.3.2",
+    "gulp": "~3.5.2",
+    "gulp-jshint": "~1.4.2",
+    "gulp-concat": "~2.1.7",
+    "gulp-uglify": "~0.2.1",
+    "gulp-rename": "~1.1.0",
+    "gulp-jsdoc": "0.0.2"
   },
   "engines": {
     "node": "0.8.x",

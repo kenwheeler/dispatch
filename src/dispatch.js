@@ -28,12 +28,13 @@
     };
 
     // Initialize event w/ name
+    //(mocha-phantomjs doesn't support Event constructor)
     e.ev.initEvent(event,true, true);
 
     // Update method for data
     e.fnc = function(){
       return(fn.call(e.ev, e.data));
-    }
+    };
 
     // Adds event object to global event array
     dispatch.events[event] = e;
@@ -89,7 +90,7 @@
     } else {
       dispatch.global.fireEvent(e.ev);
     }
-  }
+  };
 
   // Return dispatch object
   return dispatch;
